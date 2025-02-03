@@ -16,6 +16,9 @@ class AppelsState extends State<Appels>{
       body: Center(
         child: Text("Appels"),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){},
+      child: Icon(Icons.add_call),
+      ),
     );
   }
 

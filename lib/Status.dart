@@ -16,6 +16,9 @@ class StatusState extends State<Status>{
       body: Center(
         child: Text("Status"),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){},
+        child: Icon(Icons.add_a_photo),
+      ),
     );
   }
 

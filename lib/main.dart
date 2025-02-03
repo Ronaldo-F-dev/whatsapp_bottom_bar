@@ -30,20 +30,57 @@ class HomeState extends State<Home>{
     Appels()
   ];
   int pageIndex = 0;
+
+
+  void _onSwipeLeft() {
+    if (pageIndex < pages.length - 1) {
+      setState(() {
+        pageIndex++;
+      });
+    }
+  }
+
+  void _onSwipeRight() {
+    if (pageIndex > 0) {
+      setState(() {
+        pageIndex--;
+      });
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GestureDetector(
+      onHorizontalDragEnd: (details){
+        if (details.primaryVelocity! < 0) {
+          _onSwipeLeft();
+        } else if (details.primaryVelocity! > 0) {
+          _onSwipeRight();
+        }
+      },
+      child: Scaffold(
         appBar: AppBar(
-          title: Text("WHATSAPP"),
+          title: Text("WhatsApp"),
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(Icons.camera_alt),
+                Icon(Icons.search),
+                Icon(Icons.more_vert)
+              ],
+            )
+          ],
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(color: Colors.grey,width: 0.2)
-            )
+              border: Border(
+                  top: BorderSide(color: Colors.grey,width: 0.2)
+              )
           ),
           child: NavigationBar(
-            backgroundColor: Colors.white,
+              backgroundColor: Colors.white,
               selectedIndex : pageIndex,
               onDestinationSelected: (int index){
                 setState(() {
@@ -71,6 +108,7 @@ class HomeState extends State<Home>{
           ),
         ),
         body: pages[pageIndex],
+      ),
     );
   }
 
