@@ -63,12 +63,12 @@ class HomeState extends State<Home>{
         appBar: AppBar(
           title: Text("WhatsApp"),
           actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Wrap(
+              spacing: 20, // Définit l’espace entre les éléments
               children: [
                 Icon(Icons.camera_alt),
                 Icon(Icons.search),
-                Icon(Icons.more_vert)
+                Icon(Icons.more_vert),
               ],
             )
           ],
@@ -111,5 +111,4 @@ class HomeState extends State<Home>{
       ),
     );
   }
-
 }

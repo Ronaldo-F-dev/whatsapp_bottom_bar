@@ -16,8 +16,74 @@ class DiscussionState extends State<Discussion>{
      floatingActionButton: FloatingActionButton(onPressed: (){},
        child: Icon(Icons.add),
      ),
-     body: Center(
-       child: Text("Discussion"),
+     body: Scaffold(
+        body: ListView(
+          children: [
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+
+                          Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  image:DecorationImage(image: AssetImage("assets/ronaldo.jpg"),
+                                      fit: BoxFit.cover
+                                  ),
+
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text("Ronaldo"),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text("Bonsoir comment tu vas ?")
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      )
+
+                    ],
+                  ),
+
+                  Column(
+                    children: [
+                      Badge(
+                        textColor: Colors.black,
+                        label: Text("1",style: TextStyle(fontSize: 13),),
+                        backgroundColor: Colors.green,
+                      )
+                    ],
+                  )
+                ],
+              ),
+
+            ),
+          ],
+        ),
      ),
    );
   }
